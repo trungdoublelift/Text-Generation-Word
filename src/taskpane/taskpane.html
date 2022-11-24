@@ -29,13 +29,13 @@
     <section id="sideload-msg" class="ms-welcome__main">
         <h2 class="ms-font-xl">Please sideload your add-in to see app body.</h2>
     </section>
-    <main id="app-body" class="ms-welcome__main" >
+    <main id="app-body" class="ms-welcome__main">
         <div>
             <div>
                 <h2>Trạng thái:</h2>
-                <p>Chưa chạy</p>
+                <p id="status-text">Chưa chạy</p>
             </div>
-          
+
             <div>
                 <label for="keyword">Nhập từ khóa</label>
                 <br>
@@ -44,20 +44,24 @@
             <div>
                 <label for="numOfText">Nhập số lượng từ</label>
                 <br>
-                <input type="text" id="numOfText">
+                <input type="number" id="numOfText">
             </div>
             <div>
                 <label for="numOfText">Nhập số lượng kết quả</label>
                 <br>
-                <input type="number" id="numOfResults">
+                <input type="number" id="numOfResult">
                 <br>
-                <button id="run">Chạy</button>
+                <div>
+                    <button id="run" class="ms-Button">Chạy</button>
+                </div>
+
             </div>
             <label for="">Kết quả</label>
             <div id="result-container">
-        
+
+
             </div>
-            
+
         </div>
 
     </main>
