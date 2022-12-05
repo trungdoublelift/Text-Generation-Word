@@ -39,7 +39,7 @@ export async function run() {
     await context.sync();
     text = selectedRange.text;
     text = text.replace(/\s+/g, ' ').trim();
-    // split text to array then check range
+   
     let textArray = text.split(" ");
     if (parseInt(textLength) <= textArray.length) {
       status.innerText = "Độ dài kết quả phải lớn hơn độ dài văn bản được chọn";
@@ -85,7 +85,7 @@ async function userAction(text, numOfResult, textLength) {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ text: text, numOfResult: parseInt(numOfResult), textLength: parseInt(textLength) })
+    body: JSON.stringify({ text: text, num_return_sequences: parseInt(numOfResult), max_length: parseInt(textLength) })
 
   });
   if (rawResponse.ok) {
