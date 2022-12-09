@@ -79,6 +79,7 @@ export async function run() {
   });
 }
 async function userAction(text, numOfResult, textLength) {
+  //new
   const rawResponse = await fetch('http://localhost:8080/generate', {
     method: 'POST',
     headers: {
