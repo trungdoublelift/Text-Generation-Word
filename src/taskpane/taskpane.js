@@ -85,21 +85,24 @@ export async function run() {
   });
 }
 async function userAction(text, numOfResult, textLength) {
-  const rawResponse = await fetch('http://localhost:8080/generate', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ text: text, numOfResult: parseInt(numOfResult), textLength: parseInt(textLength) })
+  try{
+    const rawResponse = await fetch('http://localhost:8080/generate', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ text: text, numOfResult: parseInt(numOfResult), textLength: parseInt(textLength) })
+  
+    });
+    if (rawResponse.ok) {
+      return rawResponse.json();
+    }
+  }catch(err){
+    return "error";
+  }
 
-  });
-  if (rawResponse.ok) {
-    return rawResponse.json();
-  }
-  else {
-    return "error"
-  }
+
 }
 function checkValid(input) {
   if (parseInt(input) <= 0) {
